@@ -51,7 +51,7 @@ $conn->close();
 //gets all the heros and returns them
 function getAllHeroes($conn){
   $data=array();
-  
+  // Selects all from the Heros table and displays all.
   $sql = "SELECT * 
           FROM heroes";
   $result = $conn->query($sql);
@@ -69,7 +69,7 @@ function getAllHeroes($conn){
 //ability to pull the Heros id in and view by themselves
 function getHeroById($conn, $heroId){
    $data=array();
-
+// Pulls the heros table in and then you can display each hero by their speicific id
     $sql = "SELECT * 
             FROM heroes 
             WHERE id = " . $heroId;
@@ -87,7 +87,7 @@ function getHeroById($conn, $heroId){
 
 //adds Hero to the heros table and updates the according information
 function addHeroToTable($conn, $name, $about_me, $biography, $img){
-  
+  //inserts custom created hero into the heros table, and includes all the info for about me, bio, and img.
   $sql = "INSERT INTO heroes (name, about_me, biography, image_url)
           VALUES ('$name', '$about_me', '$biography', '$img')";
   
@@ -103,7 +103,7 @@ function addHeroToTable($conn, $name, $about_me, $biography, $img){
 
 //deletes the last created hero and information that goes with it
 function deleteHeroFromTable($conn, $id, $name, $about_me, $biography, $img){
-  
+  //pulls the Heros table, and you can then delete the supplied Hero by ID.
   $sql = "DELETE FROM heroes 
           WHERE id=$id";
     
@@ -119,7 +119,7 @@ function deleteHeroFromTable($conn, $id, $name, $about_me, $biography, $img){
 
 //updates the Abilities table 
 function updateHeroAbility($conn, $id, $ability){
-  
+  //pulls the abilities table in, and modifies 1 of the givem abilities.
   $sql = "UPDATE abilities 
           SET ability=$ability 
           WHERE id=$id";
